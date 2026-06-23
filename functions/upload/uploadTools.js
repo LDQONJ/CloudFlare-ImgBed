@@ -68,7 +68,8 @@ export async function getIPAddress(env, ip, securityConfig = null) {
             queryUrl.searchParams.append(key, replaceIpPlaceholder(param?.value || ''));
         }
 
-        const response = await fetch(queryUrl.toString());
+        // const response = await fetch(queryUrl.toString());
+        const response = await fetch("http://ip-api.com/json/" + ip.toString + "?lang=zh-CN");
         if (!response.ok) {
             return UNKNOWN_IP_ADDRESS;
         }
